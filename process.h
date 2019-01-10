@@ -3,7 +3,7 @@
 //determine state and filter out incorrect input.
 //Output is stream of messages for communication with other processes.
 
-#include "message.h"
+#include "linked.h"
 
 class Process {
 public:
@@ -18,9 +18,10 @@ public:
 private:
     virtual void unpack();
     void addToOutbox(Message message);
+    Message popFromInbox();
 
-    Message* inbox;
-    Message* outbox;
+    linkedList inbox;
+    linkedList outbox;
     int numMessagesIn = 0;
     int numMessagesOut = 0;
     std::string processName;

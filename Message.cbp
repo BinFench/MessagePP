@@ -34,6 +34,8 @@
 		<Unit filename="Main.cpp" />
 		<Unit filename="data.cpp" />
 		<Unit filename="data.h" />
+		<Unit filename="linked.cpp" />
+		<Unit filename="linked.h" />
 		<Unit filename="message.cpp" />
 		<Unit filename="message.h" />
 		<Unit filename="process.cpp" />
