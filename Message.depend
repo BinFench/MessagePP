@@ -1,0 +1,55 @@
+# depslib dependency file v1.0
+1541565160 source:c:\users\ben finch\desktop\cpp\gamepractice\message.cpp
+	"message.h"
+
+1541564972 c:\users\ben finch\desktop\cpp\gamepractice\message.h
+	<string>
+	<sstream>
+
+1541567390 source:c:\users\ben finch\desktop\cpp\gamepractice\main.cpp
+	"process.h"
+
+1541566936 c:\users\ben finch\desktop\cpp\gamepractice\process.h
+	"message.h"
+
+1542381240 source:c:\users\bfinch\desktop\cpp\main.cpp
+	"process.h"
+	<iostream>
+
+1542381381 c:\users\bfinch\desktop\cpp\process.h
+	"message.h"
+
+1542381598 c:\users\bfinch\desktop\cpp\message.h
+	<string>
+	<sstream>
+
+1542220418 source:c:\users\bfinch\desktop\cpp\process.cpp
+	"process.h"
+
+1542381180 source:c:\users\bfinch\desktop\cpp\message.cpp
+	"message.h"
+
+1547091523 source:c:\users\ben finch\desktop\cpp\message\main.cpp
+	"process.h"
+	<iostream>
+
+1543349486 c:\users\ben finch\desktop\cpp\message\process.h
+	"message.h"
+
+1547094176 c:\users\ben finch\desktop\cpp\message\message.h
+	<string>
+	<sstream>
+	"data.h"
+
+1547094886 c:\users\ben finch\desktop\cpp\message\data.h
+	<cstddef>
+
+1547090440 source:c:\users\ben finch\desktop\cpp\message\data.cpp
+	"data.h"
+
+1547094610 source:c:\users\ben finch\desktop\cpp\message\message.cpp
+	"message.h"
+
+1547091129 source:c:\users\ben finch\desktop\cpp\message\process.cpp
+	"process.h"
+
