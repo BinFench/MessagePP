@@ -2,22 +2,25 @@
 
 #include "linked.h"
 
-void linkedList::append(Message newMessage) {
-    Node* node = new Node();
+template <typename Type>
+void linkedList<Type>::append(Message<Type> newMessage) {
+    Node<Type>* node = new Node<Type>();
     node->message = newMessage;
-    this->last->next = node;
-    this->last = node;
+    last->next = node;
+    last = node;
 };
 
-Message linkedList::pop() {
-    Node* toDelete = this->start;
-    Message toReturn = toDelete->message;
-    this->start = this->start->next;
+template <typename Type>
+Message<Type> linkedList<Type>::pop() {
+    Node<Type>* toDelete = start;
+    Message<Type> toReturn = toDelete->message;
+    start = start->next;
     delete toDelete;
     return toReturn;
 };
 
-linkedList::linkedList() {
-    this->start = NULL;
-    this->last = NULL;
+template <typename Type>
+linkedList<Type>::linkedList() {
+    start = NULL;
+    last = NULL;
 };

@@ -2,17 +2,20 @@
 
 #include "process.h"
 
-void Process::addToInbox(Message message) {
+template <typename Type>
+void Process<Type>::addToInbox(Message<Type> message) {
     numMessagesIn++;
     inbox.append(message);
 }
 
-void Process::addToOutbox(Message message) {
+template <typename Type>
+void Process<Type>::addToOutbox(Message<Type> message) {
     numMessagesOut++;
     outbox.append(message);
 }
 
-Message Process::popFromOutbox() {
+template <typename Type>
+Message<Type> Process<Type>::popFromOutbox() {
     if (numMessagesOut == 0)
         return emptyOutbox;
 
@@ -20,7 +23,8 @@ Message Process::popFromOutbox() {
     return outbox.pop();
 }
 
-Message Process::popFromInbox() {
+template <typename Type>
+Message<Type> Process<Type>::popFromInbox() {
     if (numMessagesIn == 0)
         return emptyOutbox;
 
@@ -28,4 +32,5 @@ Message Process::popFromInbox() {
     return inbox.pop();
 }
 
-std::string Process::getProcess() {return processName;};
+template <typename Type>
+std::string Process<Type>::getProcess() {return processName;};

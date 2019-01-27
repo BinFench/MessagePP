@@ -6,10 +6,10 @@
 
 #include <string>
 #include <sstream>
-#include "data.h"
 
 enum Types {NUM, STRING, BOOL, Null};
 
+template <typename Type>
 class Message {
 public:
     std::string getMessage();
@@ -17,15 +17,9 @@ public:
     std::string getTo();
     std::string getFrom();
     Types getType();
-    Data getData();
-    double getData(double ignore = 0);
-    std::string getData(std::string ignore = "");
-    bool getData(bool ignore = false);
+    Type getData();
     Message();
-    Message(std::string iD, std::string To, std::string From,  std::string messageData, Data &data);
-    Message(std::string iD, std::string To, std::string From,  std::string messageData, double &data);
-    Message(std::string iD, std::string To, std::string From,  std::string messageData, std::string &data);
-    Message(std::string iD, std::string To, std::string From,  std::string messageData, bool &data);
+    Message(std::string iD, std::string To, std::string From, Types messageType, std::string messageData, Type Data);
 
 private:
     std::string to;
@@ -33,5 +27,8 @@ private:
     std::string id;
     std::string message;
     Types type;
-    Data data;
+    Type data;
 };
+
+template <typename Type>
+Message<Type> createMessage(std::string id, std::string to, std::string from, Types messageType, std::string messageData, Type Data) {return Message<Type>(id, to, from, messageType, messageData, Data);};

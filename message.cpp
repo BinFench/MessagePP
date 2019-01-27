@@ -2,58 +2,33 @@
 
 #include "message.h"
 
-Message::Message() {};
+template <typename Type>
+Message<Type>::Message() {};
 
-Message::Message(std::string iD, std::string To, std::string From, std::string messageData, Data &data) {
+template <typename Type>
+Message<Type>::Message(std::string iD, std::string To, std::string From, Types messageType, std::string messageData, Type Data) {
     id = iD;
     to = To;
     from = From;
     message = messageData;
-    type = Null;
-    data = data;
+    type = messageType;
+    data = Data;
 };
 
-Message::Message(std::string iD, std::string To, std::string From, std::string messageData, double &dataval) {
-    id = iD;
-    to = To;
-    from = From;
-    message = messageData;
-    type = NUM;
-    data = Data(static_cast<void*>(&dataval));
-};
+template <typename Type>
+std::string Message<Type>::getID()        {return id;};
 
-Message::Message(std::string iD, std::string To, std::string From, std::string messageData, std::string &dataval) {
-    id = iD;
-    to = To;
-    from = From;
-    message = messageData;
-    type = STRING;
-    data = Data(static_cast<void*>(&dataval));
-};
+template <typename Type>
+std::string Message<Type>::getTo()        {return to;};
 
-Message::Message(std::string iD, std::string To, std::string From, std::string messageData, bool &dataval) {
-    id = iD;
-    to = To;
-    from = From;
-    message = messageData;
-    type = BOOL;
-    data = Data(static_cast<void*>(&dataval));
-};
+template <typename Type>
+std::string Message<Type>::getFrom()      {return from;};
 
-std::string Message::getID()        {return id;};
+template <typename Type>
+std::string Message<Type>::getMessage()   {return message;};
 
-std::string Message::getTo()        {return to;};
+template <typename Type>
+Types Message<Type>::getType()            {return type;};
 
-std::string Message::getFrom()      {return from;};
-
-std::string Message::getMessage()   {return message;};
-
-Types Message::getType()            {return type;};
-
-Data Message::getData()             {return data;};
-
-double Message::getData(double ignore) {return *static_cast<double*>(data.getData());};
-
-std::string Message::getData(std::string ignore) {return *static_cast<std::string*>(data.getData());};
-
-bool Message::getData(bool ignore) {return *static_cast<bool*>(data.getData());};
+template <typename Type>
+Type Message<Type>::getData()             {return data;};

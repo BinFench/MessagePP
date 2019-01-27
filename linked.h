@@ -2,20 +2,22 @@
 
 #include "message.h"
 
+template <typename Type>
 class Node {
 public:
     Node* next;
-    Message message;
+    Message<Type> message;
 };
 
+template <typename Type>
 class linkedList {
 public:
-    Node* start;
-    Node* last;
+    Node<Type>* start;
+    Node<Type>* last;
 
-    linkedList();
-    ~linkedList();
+    linkedList<Type>();
+    ~linkedList<Type>();
 
-    void append(Message newMessage);
-    Message pop();
+    void append(Message<Type> newMessage);
+    Message<Type> pop();
 };

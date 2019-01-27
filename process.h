@@ -5,23 +5,24 @@
 
 #include "linked.h"
 
+template <typename Type>
 class Process {
 public:
     virtual void run();
     Process();
-    void addToInbox(Message message);
-    Message popFromOutbox();
+    void addToInbox(Message<Type> message);
+    Message<Type> popFromOutbox();
     std::string getProcess();
 
-    Message emptyOutbox;
+    Message<Type> emptyOutbox;
 
 private:
     virtual void unpack();
-    void addToOutbox(Message message);
-    Message popFromInbox();
+    void addToOutbox(Message<Type> message);
+    Message<Type> popFromInbox();
 
-    linkedList inbox;
-    linkedList outbox;
+    linkedList<Type> inbox;
+    linkedList<Type> outbox;
     int numMessagesIn = 0;
     int numMessagesOut = 0;
     std::string processName;
