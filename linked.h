@@ -6,7 +6,7 @@ template <typename Type>
 class Node {
 public:
     Node* next;
-    Message<Type> message;
+    Type data;
 };
 
 template <typename Type>
@@ -18,6 +18,6 @@ public:
     linkedList<Type>();
     ~linkedList<Type>();
 
-    void append(Message<Type> newMessage);
-    Message<Type> pop();
+    void append(Type newMessage);
+    Type pop();
 };

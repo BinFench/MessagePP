@@ -34,3 +34,13 @@ Message<Type> Process<Type>::popFromInbox() {
 
 template <typename Type>
 std::string Process<Type>::getProcess() {return processName;};
+template <typename Type>
+bool Process<Type>::isOutboxLocked() {return outboxLock;};
+template <typename Type>
+bool Process<Type>::isRunning() {return running;};
+template <typename Type>
+bool Process<Type>::isParallel() {return parallel;};
+template <typename Type>
+bool Process<Type>::isEmptyIn() {return (numMessagesIn == 0);};
+template <typename Type>
+bool Process<Type>::isEmptyOut() {return (numMessagesIn == 0);};

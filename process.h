@@ -13,10 +13,15 @@ public:
     void addToInbox(Message<Type> message);
     Message<Type> popFromOutbox();
     std::string getProcess();
+    bool isOutboxLocked();
+    bool isRunning();
+    bool isParallel();
+    bool isEmptyIn();
+    bool isEmptyOut();
 
     Message<Type> emptyOutbox;
 
-private:
+protected:
     virtual void unpack();
     void addToOutbox(Message<Type> message);
     Message<Type> popFromInbox();
@@ -26,4 +31,7 @@ private:
     int numMessagesIn = 0;
     int numMessagesOut = 0;
     std::string processName;
+    bool outboxLock;
+    bool running;
+    bool parallel;
 };

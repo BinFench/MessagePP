@@ -3,17 +3,17 @@
 #include "linked.h"
 
 template <typename Type>
-void linkedList<Type>::append(Message<Type> newMessage) {
+void linkedList<Type>::append(Type newdata) {
     Node<Type>* node = new Node<Type>();
-    node->message = newMessage;
+    node->data = newdata;
     last->next = node;
     last = node;
 };
 
 template <typename Type>
-Message<Type> linkedList<Type>::pop() {
+Type linkedList<Type>::pop() {
     Node<Type>* toDelete = start;
-    Message<Type> toReturn = toDelete->message;
+    Type toReturn = toDelete->message;
     start = start->next;
     delete toDelete;
     return toReturn;
